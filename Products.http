@@ -1,0 +1,97 @@
+@Products_HostAddress = http://localhost:5125
+
+GET {{Products_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET http://localhost:5125/
+
+###
+GET http://localhost:5125/Products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3OTA4NDQ1NTd9.GHs8rsVurY7uf5N7QK4Rfu3g5k2DIHlD6VnhwxcTHs8
+###
+
+GET http://localhost:5125/api/Products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc5MDk0MTgyOX0.9GTa_HYzIZPLCNHiWJ7Ux_E9QU2uzyFmEvIfLcQDX2Y
+
+###
+GET http://localhost:5125/Products/2
+
+###
+POST  http://localhost:5125/Products
+Content-Type: application/json
+
+{
+    "name" : "Washing machine",
+    "prize" : 1000000
+}
+###
+
+POST http://localhost:5125/api/Products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc5MDk0MTgyOX0.9GTa_HYzIZPLCNHiWJ7Ux_E9QU2uzyFmEvIfLcQDX2Y
+Content-Type: application/json
+
+{
+    "pid": 1,
+    "name": "Laptop",
+    "prize": 50000
+}
+
+###
+PUT http://localhost:5125/Products/2
+Content-Type: application/json
+
+{
+    "name" : "Phone",
+    "prize": 20000
+
+}
+
+###
+
+DELETE  http://localhost:5125/Products/2
+###
+
+DELETE  http://localhost:5125/api/Products/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTc5MDk0MTgyOX0.9GTa_HYzIZPLCNHiWJ7Ux_E9QU2uzyFmEvIfLcQDX2Y
+
+###
+POST http://localhost:5125/Login
+Content-Type: application/json
+
+{
+    "username": "nely",
+    "password": "nely123"
+}
+
+###
+POST http://localhost:5125/Upload
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="File"; filename="test.txt"
+Content-Type: text/plain
+
+Hello, this is my test file.
+--boundary--
+
+###
+GET http://localhost:5125/retrieveFile/test.txt
+
+###
+POST  http://localhost:5125/sendEmail
+Content-Type: application/json
+
+{
+    "email": " "
+}
+
+### Verify OTP
+POST http://localhost:5125/verifyOtp
+Content-Type: application/json
+
+{
+  "email": "",
+  "otp": 763500
+}
